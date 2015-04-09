@@ -1,0 +1,86 @@
+<head>
+  <title>Clocksystem</title>
+</head>
+
+<body>
+  <div id="user">
+    ProNoob13
+  </div>
+  <div id="projects">
+    <ul>
+      {{# each projects}}
+        <li class="project" id="{{_id}}">
+          <span class="title">{{title}}</span>
+          <span class="description">{{description}}</span>
+        </li>
+      {{/each}}
+      <li class="project create">
+        <span class="title">+ New project</span>
+      </li>
+    </ul>
+  </div>
+  <div id="overview">
+    {{#with project}}
+      {{> overview}}
+    {{/with}}
+  </div>
+</body>
+
+<template name="overview">
+  <form method="post" id="edit">
+    <input {{readonly 'editing'}} required name="title" placeholder="Title..." value="{{title}}" />
+    <textarea {{readonly 'editing'}} name="description" placeholder="Description...">{{description}}</textarea>
+    {{#if workdays}}
+      <table>
+        <tbody>
+          {{#each workdays}}
+            {{> workday}}
+          {{/each}}
+          <tr>
+            <th>Total</th><td>{{hours}} hours</td>
+          </tr>
+        </tbody>
+      </table>
+    {{/if}}
+    {{#if editing}}
+      <button type="submit" class="save">
+        {{#if creating}}
+          Create
+        {{else}}
+          Save
+        {{/if}}
+      </button>
+      {{#unless creating}}
+      <button type="button" class="delete">Delete</button>
+      {{/unless}}
+
+      <button type="reset" class="cancel">Cancel</button>
+    {{else}}
+      <div class="wallclock">
+        <button {{disabled 'id'}} id="punchcard">
+          {{#if active}}
+            Clock out!
+          {{else}}
+            Clock in!
+          {{/if}}
+        </button>
+      </div>
+    {{/if}}
+  </form>
+</template>
+
+<template name="workday">
+  <tr>
+    <th class="date">
+      {{date}}
+      {{#if hours}}
+      &nbsp;({{hours}})
+      {{/if}}
+    </th>
+    {{#each times}}
+      <td class="time">
+        {{start}} - {{end}}
+      </td>
+    {{/each}}
+  </tr>
+</template>

@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+
+  font-family: sans-serif;
+}
+
+body > div {
+  padding: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+#user {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+
+  color: #FFF;
+  background: #22C;
+  background: linear-gradient(#44E, #00A);
+
+  text-align: right;
+  text-shadow: 0 -1px 0 #008;
+}
+
+#projects {
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  position: fixed;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+
+  width: 200px;
+
+  background-color: #EEE;
+  background: linear-gradient(#DDD, #EEE);
+}
+
+#projects .project {
+  margin-bottom: 5px;
+
+  cursor: pointer;
+}
+
+#projects .project span {
+  display: block;
+}
+
+#projects .project span.description {
+  font-style: italic;
+
+  color: #888;
+}
+
+#overview {
+  padding: 0;
+  padding-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 230px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#overview table {
+  border-collapse: collapse;
+}
+
+#overview table tr {
+  border-top: solid 5px #FFF;
+}
+
+#overview table td, th {
+  padding: 5px 10px;
+
+  min-width: 6em;
+
+  border-right: solid 5px #FFF;
+
+  text-align: center;
+}
+
+#overview table tr:nth-child(2n) td,
+#overview table tr:nth-child(2n) th {
+  background: #EEE;
+}
+
+#overview button {
+  float: right;
+
+  margin-left: 5px;
+}
+
+#overview button.save {
+  font-weight: bold;
+}
+
+#overview .wallclock {
+  position: fixed;
+  left: 220px;
+  bottom: 0;
+  right: 0;
+
+  height: 50px;
+
+  background: #FFF;
+
+  text-align: center;
+  line-height: 50px;
+}
+
+#overview .wallclock #punchcard {
+  float: none;
+
+  padding: 10px 20px;
+}
+
+#edit input[name="title"] {
+  font-size: 2em;
+}
+
+#edit textarea {
+  font-family: sans-serif;
+  font-style: italic;
+}
+
+#edit textarea, #edit input, #edit button {
+  margin-bottom: 5px;
+}
+
+#edit textarea, #edit input {
+  padding: 5px;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  border: none;
+  border-top: solid 1px #DDD;
+  background: #EEE;
+}
+
+#edit textarea[readonly], #edit input[readonly],
+#edit textarea[disabled], #edit input[disabled] {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+#edit textarea[disabled], #edit input[disabled] {
+  color: #888;
+}
+
+#edit button {
+  padding: 5px 10px;
+}
